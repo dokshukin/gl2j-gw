@@ -2,19 +2,24 @@
 * issue transition from Gitlab to Jira
 * creation of external links in jira to GitLab
 
-## Configure and run
 
-### Wiki
+## Documentation
 [Quick start with docker](https://github.com/dokshukin/gl2j-gw/wiki/Quickstart)
 
 [Detailed configuration](https://github.com/dokshukin/gl2j-gw/wiki/Configuration)
 
-### Download
-    wget 
+## Configure and run
 
+### Download
+For Linux (amd64):
+
+    wget https://github.com/dokshukin/gl2j-gw/releases/download/v0.1/gl2j-gw_linux-amd64-v0.1.14 \
+      -o /dev/null -O gl2j-gw && chmod +x gl2j-gw
+
+See other distributions in [downloads](https://github.com/dokshukin/gl2j-gw/releases).
 
 ### Create config
-Config example
+Example (`config.yml`):
 ```
 ---
 
@@ -85,4 +90,3 @@ projects:
 * branch creation from Jira
 * docker containers
 * WEB inerface (maybe)
-
