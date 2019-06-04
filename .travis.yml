@@ -41,5 +41,5 @@ deploy:
     - build/amd64/${MYAPP}-v${VERSION_PREFIX}.${TRAVIS_JOB_NUMBER}-amd64
   skip_cleanup: true
   on:
-    tags: true
+    # tags: true
     branch: master
