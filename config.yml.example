@@ -1,0 +1,73 @@
+---
+
+bind_ip: "0.0.0.0"
+bind_port: "8080"
+api_uri: "/api"
+
+jira_settings:
+  url: "https://your-domain.atlassian.net"
+  user: "jira-bot@your-domain.com"
+  password: "XXXXXXXXXXXXXXXXXXXX"
+
+projects:
+  DEV:
+    Bug:
+      transitions:
+        branch_created: 21
+        merged: 31
+        merge_request: 41
+      external_links:
+        branch_created: True
+        branch_deleted: True
+        pipeline: False
+        approved: True
+        merge_request: True
+
+    Feature:
+      transitions:
+        branch_created: 21
+        merged: 31
+        merge_request: 41
+      external_links:
+        branch_created: True
+        branch_deleted: True
+        pipeline: True
+        approved: True
+        merge_request: True
+
+    Epic:
+      transitions:
+        branch_created: 22
+        merged: 32
+        merge_request: 42
+      external_links:
+        branch_created: True
+        branch_deleted: True
+        pipeline: True
+        approved: True
+        merge_request: True
+
+  OPS:
+    Task:
+      transitions:
+        branch_created: 23
+        merged: 33
+        merge_request: 43
+      external_links:
+        branch_created: True
+        branch_deleted: True
+        pipeline: True
+        approved: True
+        merge_request: True
+
+    INC:
+      transitions:
+        branch_created: 23
+        merged: 33
+        merge_request: 43
+      external_links:
+        branch_created: True
+        branch_deleted: True
+        pipeline: True
+        approved: False
+        merge_request: True
