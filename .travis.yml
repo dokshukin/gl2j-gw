@@ -11,7 +11,7 @@ env:
   global:
     - MYAPP=gl2j-gw
     - MYEMAIL=dokshukin@gmail.com
-    - BUILD_DATE=$(date "+%Y-%m-%d_%T")
+    - BUILD_DATE=$(date "+%Y-%m-%dT%H:%M:%SZ")
     - secure: ${GITHUB_TOKEN}
 
 before_install:

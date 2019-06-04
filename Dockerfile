@@ -17,9 +17,8 @@ RUN apt-get update && \
 RUN go get -d -v ./...
 
 # Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w" -a -installsuffix cgo -o /go/bin/gl2j-gw .
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build --ldflags "-s -w -X main.version=${DOCKER_TAG} -X main.build=2019-06-04" -a -installsuffix cgo -o /go/bin/gl2j-gw .
 RUN upx /go/bin/gl2j-gw
-
 
 ######## Start a new stage from scratch #######
 FROM alpine:latest
