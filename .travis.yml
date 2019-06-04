@@ -25,10 +25,10 @@ install:
 # build the app,build the package
 before_deploy:
   - mkdir -p build/{386,amd64}
-  - GOOS=linux GOARCH=386   go build --ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER} -X main.build=${BUILD_DATE}" -o build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-386 *.go
-  - upx build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-386
-  - GOOS=linux GOARCH=amd64 go build --ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER} -X main.build=${BUILD_DATE}" -o build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-amd64 *.go
-  - upx build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-amd64
+  - GOOS=linux GOARCH=386   go build --ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-386 *.go
+  - upx build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-386
+  - GOOS=linux GOARCH=amd64 go build --ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-amd64 *.go
+  - upx build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-amd64
 
 deploy:
   provider: releases
@@ -36,8 +36,8 @@ deploy:
   api_key:
     secure: ${GITHUB_TOKEN}
   file:
-    - build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-386
-    - build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_JOB_NUMBER}-amd64
+    - build/386/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-386
+    - build/amd64/${MYAPP}-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}-amd64
   skip_cleanup: true
   on:
     tags: true
