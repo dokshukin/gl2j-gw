@@ -1,9 +1,10 @@
 package main
 
 type jiraRemoteLink struct {
-	GlobalID    string                    `json:"globalId"`
-	Application jiraRemoteLinkApplication `json:"application"`
-	Object      jiraRemoteLinkObject      `json:"object"`
+	GlobalID     string                    `json:"globalId"`
+	Relationship string                    `json:"relationship"`
+	Application  jiraRemoteLinkApplication `json:"application"`
+	Object       jiraRemoteLinkObject      `json:"object"`
 }
 
 type jiraRemoteLinkApplication struct {

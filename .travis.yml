@@ -25,14 +25,13 @@ install:
 
 
 # build the app,build the package
-gobuild_args: -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}"
 before_deploy:
   - mkdir -p build/{386,amd64}
-  - GOOS=freebsd GOARCH=386   go build -o build/386/${MYAPP}_freebsd-i386-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
-  - GOOS=freebsd GOARCH=amd64 go build -o build/amd64/${MYAPP}_freebsd-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
-  - GOOS=darwin  GOARCH=amd64 go build -o build/amd64/${MYAPP}_darwin-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
-  - GOOS=linux   GOARCH=386   go build -o build/386/${MYAPP}_linux-i386-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
-  - GOOS=linux   GOARCH=amd64 go build -o build/amd64/${MYAPP}_linux-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
+  - GOOS=freebsd GOARCH=386   go build -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/386/${MYAPP}_freebsd-i386-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
+  - GOOS=freebsd GOARCH=amd64 go build -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/amd64/${MYAPP}_freebsd-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
+  - GOOS=darwin  GOARCH=amd64 go build -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/amd64/${MYAPP}_darwin-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
+  - GOOS=linux   GOARCH=386   go build -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/386/${MYAPP}_linux-i386-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
+  - GOOS=linux   GOARCH=amd64 go build -x -ldflags "-s -w -X main.version=${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} -X main.build=${BUILD_DATE}" -o build/amd64/${MYAPP}_linux-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER} *.go
   - upx build/amd64/${MYAPP}_linux-x84_64-${TRAVIS_TAG}.${TRAVIS_BUILD_NUMBER}
 
 
