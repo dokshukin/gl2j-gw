@@ -4,6 +4,11 @@
 
 ## Configure and run
 
+### Wiki
+[Quick start with docker](https://github.com/dokshukin/gl2j-gw/wiki/Quickstart)
+
+[Detailed configuration](https://github.com/dokshukin/gl2j-gw/wiki/Configuration)
+
 ### Download
     wget 
 
@@ -78,5 +83,6 @@ projects:
 * handle delete branch
 * additional statuses for transition (f.e. `approved`, `tested`)
 * branch creation from Jira
-
+* docker containers
+* WEB inerface (maybe)
 
