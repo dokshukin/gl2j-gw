@@ -13,22 +13,22 @@ RUN apt-get update && \
     mv /tmp/gl2j-gw-master/* .  && \
     rm master.zip
 
-  # Download dependencies
-  RUN go get -d -v ./...
+# Download dependencies
+RUN go get -d -v ./...
 
-  # Build the Go app
-  RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w" -a -installsuffix cgo -o /go/bin/gl2j-gw .
-  RUN upx /go/bin/gl2j-gw
+# Build the Go app
+RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w" -a -installsuffix cgo -o /go/bin/gl2j-gw .
+RUN upx /go/bin/gl2j-gw
 
 
-  ######## Start a new stage from scratch #######
-  FROM alpine:latest
+######## Start a new stage from scratch #######
+FROM alpine:latest
 
-  WORKDIR /root/
+WORKDIR /root/
 
-  # Copy the Pre-built binary file from the previous stage
-  COPY --from=builder /go/bin/gl2j-gw .
+# Copy the Pre-built binary file from the previous stage
+COPY --from=builder /go/bin/gl2j-gw .
 
-  EXPOSE 8080
+EXPOSE 8080
 
-~ CMD ["./gl2j-gw -c /etc/config.yml"]
+CMD ["./gl2j-gw -c /etc/config.yml"]
