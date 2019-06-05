@@ -45,6 +45,8 @@ func main() {
 		// debug config print
 		fmt.Printf("config: #%v\n", cfg)
 
+		http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
+
 		// run rest API
 		http.HandleFunc(cfg.APIURI+"/", postHandler)
 		err = http.ListenAndServe(cfg.BindIP+":"+cfg.BindPort, nil)

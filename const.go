@@ -22,6 +22,6 @@ const (
 
 	maxAttempts = 30
 
-	gitLabLogo       = "https://about.gitlab.com/images/press/logo/png/gitlab-icon-rgb.png"
+	gitLabLogo       = "/img/gitlab.png"
 	gitLabZeroCommit = "0000000000000000000000000000000000000000"
 )

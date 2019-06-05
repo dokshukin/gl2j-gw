@@ -11,6 +11,7 @@ import (
 type config struct {
 	BindIP       string `json:"bind_ip,omitempty" yaml:"bind_ip,omitempty"`
 	BindPort     string `json:"bind_port,omitempty" yaml:"bind_port,omitempty"`
+	Domain       string `json:"domain,omitempty" yaml:"domain,omitempty"`
 	APIURI       string `json:"api_uri,omitempty" yaml:"api_uri,omitempty"`
 	JiraSettings struct {
 		URL      string `json:"url" yaml:"url"`

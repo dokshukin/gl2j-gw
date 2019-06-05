@@ -16,6 +16,13 @@ type Envelope struct {
 // main function handles all POST requests
 func postHandler(w http.ResponseWriter, r *http.Request) {
 
+	// check method (POST only)
+	if r.Method != "POST" {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+		closeConnection(w, nil)
+		return
+	}
+
 	// get request body
 	body, e := ioutil.ReadAll(r.Body)
 	if e != nil {

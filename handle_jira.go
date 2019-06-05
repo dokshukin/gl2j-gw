@@ -90,7 +90,7 @@ func sendJiraRemoteLink(action string, project string, issueID string, gitLabURL
 			Title: action,
 			URL:   gitLabURL,
 			Icon: jiraRemoteLinkObjectIcon{
-				URL:   gitLabLogo,
+				URL:   cfg.Domain + gitLabLogo,
 				Title: "gitlab logo",
 			},
 		},

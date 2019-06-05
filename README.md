@@ -25,6 +25,7 @@ Example (`config.yml`):
 
 bind_ip: "0.0.0.0"
 bind_port: "8080"
+domain: https://gl2j.your-domain.com
 api_uri: "/api"
 
 jira_settings:
