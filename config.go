@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"io/ioutil"
+	"os"
 	"strings"
 
 	"gopkg.in/yaml.v2"
@@ -52,6 +53,24 @@ func readConfig(configFile *string) (err error) {
 	err = yaml.Unmarshal(yamlFile, &cfg)
 	if err != nil {
 		return
+	}
+
+	// read vars from ENV
+	{
+		var tmpStr string
+		var tmpBool bool
+
+		if tmpStr, tmpBool = os.LookupEnv(envJiraHost); tmpBool == true {
+			cfg.JiraSettings.URL = tmpStr
+		}
+
+		if tmpStr, tmpBool = os.LookupEnv(envJiraUser); tmpBool == true {
+			cfg.JiraSettings.User = tmpStr
+		}
+
+		if tmpStr, tmpBool = os.LookupEnv(envJiraPassword); tmpBool == true {
+			cfg.JiraSettings.Password = tmpStr
+		}
 	}
 
 	// exclude wrong URL settings fetched from config

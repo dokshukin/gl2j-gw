@@ -24,4 +24,8 @@ const (
 
 	gitLabLogo       = "/img/gitlab.png"
 	gitLabZeroCommit = "0000000000000000000000000000000000000000"
+
+	envJiraHost     = "JIRA_URL"
+	envJiraUser     = "JIRA_USER"
+	envJiraPassword = "JIRA_PASSWORD"
 )

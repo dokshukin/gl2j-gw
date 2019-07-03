@@ -4,16 +4,16 @@
 
 
 ## Documentation
-[Quick start with docker](https://github.com/dokshukin/gl2j-gw/wiki/Quickstart)
+[Quick start with docker](https://hub.docker.com/r/dark77/gl2j-gw)
 
-[Detailed configuration](https://github.com/dokshukin/gl2j-gw/wiki/Configuration)
+[Detailed configuration (TODO)](https://github.com/dokshukin/gl2j-gw/wiki/Configuration)
 
 ## Configure and run
 
 ### Download
 For Linux (amd64):
 
-    wget https://github.com/dokshukin/gl2j-gw/releases/download/v0.1/gl2j-gw_linux-amd64-v0.1.17 \
+    wget https://github.com/dokshukin/gl2j-gw/releases/download/0.3/gl2j-gw_linux-amd64-v0.3.1 \
       -o /dev/null -O gl2j-gw && chmod +x gl2j-gw
 
 See other distributions in [downloads](https://github.com/dokshukin/gl2j-gw/releases).
@@ -82,6 +82,13 @@ projects:
         merge_request: True
 ```
 
+You can redefine `jira_settings` by environment variables:
+```
+JIRA_URL="https://your-next-domain.atlassian.net"
+JIRA_USER="jira-user@your-domain.com"
+JIRA_PASSWORD="zzzzzzzzzzz"
+```
+
 ### Run
     ./gl2j-gw --config=/path/to/config.yml
 
@@ -89,5 +96,5 @@ projects:
 * handle delete branch
 * additional statuses for transition (f.e. `approved`, `tested`)
 * branch creation from Jira
-* docker containers
+* ~~docker containers~~
 * WEB inerface (maybe)
