@@ -82,7 +82,7 @@ projects:
         merge_request: True
 ```
 
-You can redefine `jira_settings` by environment variables:
+Secret `jira_settings` could be redefined by environment variables:
 ```
 JIRA_URL="https://your-next-domain.atlassian.net"
 JIRA_USER="jira-user@your-domain.com"
