@@ -13,7 +13,7 @@
 ### Download
 For Linux (amd64):
 
-    wget https://github.com/dokshukin/gl2j-gw/releases/download/0.3/gl2j-gw_linux-amd64-v0.3.23 \
+    wget https://github.com/dokshukin/gl2j-gw/releases/download/0.3/gl2j-gw_linux-amd64-v0.3.25 \
       -o /dev/null -O gl2j-gw && chmod +x gl2j-gw
 
 See other distributions in [downloads](https://github.com/dokshukin/gl2j-gw/releases).
