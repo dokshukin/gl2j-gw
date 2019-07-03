@@ -30,4 +30,4 @@ COPY --from=builder /go/bin/gl2j-gw .
 
 EXPOSE 8080
 
-CMD ["./gl2j-gw", "-c", "/etc/config.yml"]
+CMD ["./gl2j-gw", "-config", "/etc/config.yml"]
