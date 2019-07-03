@@ -43,7 +43,7 @@ func main() {
 			log.Fatalln(err)
 		}
 		// debug config print
-		fmt.Printf("config: #%v\n", cfg)
+		// fmt.Printf("config: #%v\n", cfg)
 
 		http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
 
