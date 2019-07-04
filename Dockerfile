@@ -23,6 +23,9 @@ RUN upx /go/bin/gl2j-gw
 ######## Start a new stage from scratch #######
 FROM alpine:latest
 
+RUN apk update && \
+    apk add ca-certificates
+
 WORKDIR /root/
 
 # Copy the Pre-built binary file from the previous stage
